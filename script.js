@@ -330,7 +330,7 @@
 
 // TODO: Primitive vs reference data type
 
-// * primitive type 
+// * primitive type - use stack memory
 // let num1=6
 // let num2=num1
 // console.log("value of num1 is",num1)
@@ -339,7 +339,7 @@
 // console.log("value of num1 is",num1)
 // console.log("value of num2 is",num2)
 
-// * reference type
+// * reference type - use heap memory
 // let arr1=[1,2,3,4]
 // let arr2=arr1
 // console.log("array1",arr1)
@@ -419,7 +419,7 @@
 
 
 // TODO: Objects and "." vs "[]"
-// * It is also a refence types and have key-value pair
+// * It is also a reference types and have key-value pair
 // const person={
 //     name:"Aviral",
 //     age:18,
@@ -445,9 +445,9 @@
 //     age:20
 // }
 // for (let a in person){  // ! in array for-in gives index but in objects for-in will give the key
-//     // console.log(a+":"+person[a])
+//     console.log(a+":"+person[a])
 //     console.log(`${a} : ${person[a]}`)
-//     // console.log(person.a)    // ! This will give undefined as it will check the key with name "a" in person which it will not get 
+//     console.log(person.a)    // ! This will give undefined as it will check the key with name "a" in person which it will not get 
 // }
 // console.log(Object.keys(person))    // ! It will return a array of keys of object
 // console.log(Object.values(person))
@@ -506,3 +506,232 @@
 
 // const newObject2 = { ...["item1", "item2"] };
 // console.log(newObject2)
+
+
+// TODO: Object Destructuring
+// const band={
+//     bandName:'lad zepline',
+//     song:"kesariya",
+//     year:"1998",
+//     anothersong:'tu aake dekhle'
+// };
+// const {bandName,song}=band;
+// console.log(bandName,song)
+
+// let {bandName:var1,song:var2,...rest_of_prop}=band;  // ! we can change the name of key by using ":" after original key name
+// console.log(var1,var2,rest_of_prop)
+
+
+// TODO: Object instide Array
+// const users=[
+//     {userID:1,name:"Aviral",gender:"male"},
+//     {userID:2,name:"nobody",gender:"male"},
+//     {userID:3,name:"somebody",gender:"male"}
+// ];
+// for(let a of users){
+//     console.log(a.name);
+// }
+
+
+// TODO: Nested Destructuring
+// const users=[
+//     {userID:1,name:"Aviral",gender:"male"},
+//     {userID:2,name:"nobody",gender:"male"},
+//     {userID:3,name:"somebody",gender:"male"}
+// ];
+// const [user1,user2,user3]=users;
+// console.log(user1,user3)
+
+// const [{name},,{gender}]=users; // ! using "{}" for selecting particular key inside an object
+// console.log(name,gender)
+
+
+// TODO: Function Declaration
+// function hello(){
+//     console.log("Hello to everyone");
+// }
+// hello()
+// hello()
+// hello()
+
+// function sum_two_numbers(num1,num2){
+//     return num1+num2;
+// }
+// console.log(sum_two_numbers(3,8)) // ! if we will not pass any number it will return "Nan" (not a number)
+
+// function iseven(num){
+//     return num%2===0;
+// } 
+// console.log(iseven(24))
+
+
+// TODO: Function Expressions
+// const iseven = function(num){
+//     return num%2===0;
+// }
+// console.log(iseven(152))
+
+
+// TODO: Arrow Functions
+// const iseven = num =>{     // ! it is not necessary to use "( )" when passing only single argument 
+//     return num%2===0;   
+// }
+// console.log(iseven(267))
+
+// const sum_three_numbers = (num1,num2,num3) =>{
+//     return (num1+num2+num3);
+// } 
+// console.log(sum_three_numbers(4,9,7));
+
+
+// TODO: Funciton inside function
+// const app = ()=>{
+//     const myfunc =()=>{
+//         console.log('hello from myfunc');
+//     }
+//     const addtwo = (num1,num2) =>{
+//         console.log(num1+num2);
+//     }
+//     console.log("inside app");
+//     myfunc();
+//     addtwo(7,6);
+// }
+// app();
+
+
+// TODO: Lexical scope
+// {            // ! 'let' and 'const' has "block" scope it means they can't be accessed outside block
+//     const name="Aviral";  
+//     console.log(name);  
+// }
+// {
+//     const name="Mishra";
+//     console.log(name);
+// }
+// console.log(name)
+
+// {           // ! 'var' has 'funciton' scope it means they can be accessed anywhere
+//     var name="Aviral";
+//     console.log(name);
+// }
+// var name="Mishra"
+// console.log(name);
+
+
+// TODO: Default parameters
+// const fun = (a,b=5) =>{
+//     console.log(a+b);
+// }
+// fun(7);
+
+
+// TODO: Rest parameters
+// function myfunc(a,b,...c){   // ! all the remaining params will go to the last one with spread operator
+//     console.log(a,b,c);
+// }
+// myfunc(3,4,5,6,7,8,9);
+
+// function addAll(...numbers){
+//     let total=0;
+//     for(let num of numbers){
+//         total=total+num;
+//     }
+//     return total;
+// }
+// console.log(addAll(1,2,3,4,5));
+
+
+// TODO: Param destructuring
+// const person={
+//     name:'Aviral',
+//     gender:'male',
+//     age:500
+// }
+// function details(obj){
+//     console.log(person.name);
+//     console.log(person.gender);
+// }
+// details(person);
+
+// function Details({name,gender,age}){
+//     console.log(name);
+//     console.log(gender);
+//     console.log(age)
+// }       // * this is called param destructuring 
+// Details(person);
+
+
+// TODO: Callback funciton
+// function myFunc2(){     // ! callback functions are those that takes a function as  an input and call it 
+//     console.log('inside my func 2');
+// }
+// function myFunc(Callback){
+//     console.log("Hello there I am a function")
+//     console.log(Callback);
+//     Callback();
+// }
+// myFunc(myFunc2);
+
+
+// TODO: Function returning functions
+// function myFunc(){
+//     function hello(){
+//         return 'Hello World';
+//     }
+//     return hello;
+// }
+// const ans=myFunc();
+// console.log(ans());
+
+
+// TODO: Imp. Array methods (forEach,map,filter,reduce)
+
+// * forEach 
+// const numbers=[4,2,5,8];
+// function myFunc(number,index){
+//     console.log(`index is ${index} and number is ${number*2}`);
+// }       // ! forEach takes callback as input and apply that function to every element of the object 
+// numbers.forEach(myFunc);
+
+// numbers.forEach(function(number,index){
+//     console.log(`index is ${index} , number is ${number*2}`);
+// })
+
+// * Map 
+// const numbers=[3,4,6,1,8]
+// const square=function(number){
+//     return number*number;
+// }       // ! map creates a new array and add the returned element to it
+// const squareNumber=numbers.map(square);
+// console.log(squareNumber);
+
+// const users=[
+//     {firstName:'Aviral',age:20},
+//     {firstName:'Mayank',age:21},
+//     {firstName:'Akhil',age:20},
+//     {firstName:'Aakash',age:22},
+// ]
+// const userName=users.map((user)=>{
+//     return user.firstName;
+// });
+// console.log(userName);
+
+// * filter
+const numbers=[1,3,2,6,7,4,8]
+
+// function isEven(num){
+//     return num%2===0;
+// }
+// const Even=numbers.filter(isEven)
+// console.log(Even);
+
+const isEven=function (num){
+    return num%2===0;
+}
+const Even=numbers.filter(isEven);
+console.log(Even);
+
+// const isEven=numbers.filter((num)=>{
+//     return num%2===0;
+// })
+// console.log(isEven)
