@@ -717,21 +717,251 @@
 // console.log(userName);
 
 // * filter
-const numbers=[1,3,2,6,7,4,8]
+// const numbers=[1,3,2,6,7,4,8]
 
 // function isEven(num){
 //     return num%2===0;
-// }
+// }    // ! filter always add the values to the array that return TRUE
 // const Even=numbers.filter(isEven)
 // console.log(Even);
 
-const isEven=function (num){
-    return num%2===0;
-}
-const Even=numbers.filter(isEven);
-console.log(Even);
+// const isEven=function (num){
+//     return num%2===0;
+// }
+// const Even=numbers.filter(isEven);
+// console.log(Even);
 
 // const isEven=numbers.filter((num)=>{
 //     return num%2===0;
 // })
 // console.log(isEven)
+
+// * reduce
+// const numbers=[1,2,3,4,5]
+// const sum=numbers.reduce((accumulator,currentValue)=>{
+//     return accumulator+currentValue;
+// })   // ! it returns the single value after performing the desired operation on the object
+// console.log(sum);
+
+// const userCart=[
+//     {productId:1,productName:'mobile',price:10000},
+//     {productId:2,productName:'laptop',price:25000},
+//     {productId:3,productName:'tv',price:15000},
+// ]
+// const totalPrice=userCart.reduce((price,currentValue)=>{
+//     return price+currentValue.price
+// },0)
+// console.log(totalPrice)
+
+// * sort
+// const numbers=[5,9,122,40,90,730]
+// numbers.sort();     // ! javascript sort the array according to 'ascii' value so it will not sort the numbers as desired 
+// console.log(numbers)
+
+// const names=['abc','aviral','harhsit','Acd','aBd'];
+// names.sort();
+// console.log(names);
+
+        // * sorting according to numbers
+// const numbers=[5,9,122,40,90,730];
+// numbers.sort((a,b)=>{
+//     return a-b;
+// })      // ! if 'a-b' is '+' then 'b' will be put first in array and if 'a-b' is '-' then 'a' will be put first
+// console.log(numbers);
+
+// const products=[
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]
+// const lowToHigh=products.slice(0).sort((a,b)=>{
+//     return a.price-b.price;
+// })  // ! for high to low we will do b.price-a.price
+// console.log(lowToHigh);
+
+// * find 
+// const arr=['hello','cat','dog','lion'];
+    // ! "find" checks a particular condition in an array and returns its first occurence only
+// function myfunc(str){
+//     return str.length===3;
+// }
+// const ans=arr.find(myfunc);
+
+// const ans=arr.find((str)=>{
+//     return str.length===3;
+// })
+
+// const ans=arr.find((str)=>str.length===3);
+
+// console.log(ans)
+
+// * every
+// const products=[    // ! 'every' method checks every value of the array for a particular condition and returns 'true' if all elements of array satisfies the condition
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]
+// const ans=products.every((prod)=>prod.price<10000);
+// console.log(ans);
+
+// * some
+// const products=[
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]   // ! 'some' will return true if any of the element satisfies the conditon
+// const ans=products.some((prod)=>prod.price<500);
+// console.log(ans);
+
+// * fill (value,start,end)
+// const arr=new Array(10).fill(-1)
+// console.log(arr)
+
+// const myarr=[1,2,3,4,5,6,7,8,9]
+// myarr.fill(0,2,5)
+// console.log(myarr)
+
+// * spilce (start,delete,insert)
+// const arr=['item1','item2','item3','item4','item5'];
+// const myarr=arr.splice(1,2,'inserted item1','inserted item2');
+// console.log(arr)    // ! splice method also returns the deleted elements in form of array
+// console.log(Array.isArray(myarr))
+
+
+// TODO: Sets 
+// const numbers=new Set([1,2,3,2,2,5]);
+// console.log(numbers);
+
+// const char=new Set("aviral");
+// console.log(char)
+// * add
+// const numbers=new Set();
+// console.log(numbers);
+// numbers.add(10)
+// numbers.add(20)
+// numbers.add(['item1','item2'])  // ! these two arrays can be added in set as both had different memory address so both are different objects
+// numbers.add(['item1','item2'])
+// console.log(numbers);
+
+// * has
+// if (numbers.has(10)){
+//     console.log('10 is present');
+// }
+// else{
+//     console.log('10 is not present');
+// }
+
+
+// TODO: Map 
+// const person=new Map();
+// person.set('firstName','Aviral');
+// person.set('age','20');
+// person.set(1,'one');    // ! 'objects' can only have keys of 'string' type but map can have keys of any type
+// person.set([1,2,3],'onetwothree');
+// person.set({1:'one'},'onetwothree');
+// console.log(person);
+
+// console.log(person.get('age'))
+
+// console.log(person.keys())
+// for(let a of person.keys()){
+//     console.log(a, typeof a);
+// }
+
+// for (let [key,value] of person){
+//     console.log(key,value);
+// }
+
+// const person={
+//     id :1,
+//     name:'Aviral'
+// };
+// const extraInfo=new Map()
+// extraInfo.set(person,{age:20,gender:'male'});
+// console.log(extraInfo.get(person).gender)
+
+
+// TODO: Clone using Object.assign
+// const obj={
+//     key1:'value1',
+//     key2:'value2'
+// };
+// const obj2={...obj}
+// obj.key3='value3'
+// console.log(obj)
+// console.log(obj2)
+//                         // OR
+// const obj2=Object.assign({},obj);
+// obj.key3='value3'
+// console.log(obj)
+// console.log(obj2)
+
+
+// TODO: Optional chaining
+// const user={
+//     firstName:'Aviral',
+//     address:{houseNumber:'1234'}
+// };  // ! '?.' will first check if key exist then it will give its value otherwise gives 'undefined'
+// console.log(user?.address?.houseNumber);
+
+
+// TODO: Create your own methods (THIS keyword)
+// function personInfo(){
+//     console.log(`person name is ${this.firstName} and his age is ${this.age}`);
+// }   // ! 'this' keyword takes the value of the object which calls it
+// const person1={
+//     firstName:'Aviral',
+//     age:19,
+//     about:personInfo
+// }
+// const person2={
+//     firstName:'Prakhar',
+//     age:20,
+//     about:personInfo
+// }
+// const person3={
+//     firstName:'Ayush',
+//     age:19,
+//     about:personInfo
+// }
+// person1.about()
+// person2.about()
+
+// console.log(this)   // ! this will show 'window' object
+
+
+// TODO: Call , Apply and Bind methods
+
+// * Call
+// function hello(){
+//     console.log("Hello World");
+// }
+// hello.call()
+
+// const user1={
+//     firstName:'Aviral',
+//     age:20,
+//     about:function(hobby){
+//         console.log(this.firstName,this.age,hobby);
+//     }
+// }   // ! we can call a function from another function using 'call' method
+// const user2={
+//     firstName:'Rachit',
+//     age:19
+// }
+// user1.about.call(user2,'guitar')
+
+// * Apply
+// user1.about.apply(user1,['guitar'])
+    // ! it is same as "call" but the arguments are passed in array
+
+
+// * Bind
+// const func=user1.about.bind(user1,'casio')
+// func();  // ! this method binds the reference of a function with another one
