@@ -42,7 +42,7 @@
 
 
 // TODO: "let" keyword
-// let sname="Aviral" // !using "let" instead of "var"
+// let sname="Aviral" // ! using "let" instead of "var"
 // console.log(sname)
 // sname="Mishra"
 // console.log(sname)
@@ -68,8 +68,8 @@
 // TODO: trim() method
 // let str2="  *HelloWorld*  "
 // console.log(str2.length)
-// str2.trim()     // ! "trim" method
-// console.log(str2)
+// str2.trim()     // ! "trim" method removes the extra spaces from the string  
+// console.log(str2)    // ! it does not work on same string the returned string has to be saved in another string
 // console.log(str2.length)
 // str2=str2.trim()
 // console.log(str2)
@@ -965,3 +965,184 @@
 // * Bind
 // const func=user1.about.bind(user1,'casio')
 // func();  // ! this method binds the reference of a function with another one
+
+
+// TODO: Arrow functions and 'this'
+// TODO: Short Syntax
+
+
+// TODO: Create functions to create multiple functions
+// function createUser(firstName,lastName,email,age,address){
+//     const user={};
+//     user.firstName=firstName;
+//     user.lastName=lastName;
+//     user.email=email;
+//     user.age=age;
+//     user.address=address;
+//     user.about=function(){
+//         return `${this.firstName} is ${this.age} years old`;
+//     };
+//     user.is18=function(){
+//         return this.age>=18;
+//     }
+//     return user;
+// }
+// const user1=createUser('Aviral','Mishra','aviralm52@gmail.com','20','my address');
+// console.log(user1)
+// console.log(user1.about())
+// console.log(user1.is18())
+
+
+// TODO: Store methods in different objects
+// const userMethods={
+//     about:function(){
+//         return `${this.firstName} is ${this.age} years old`;
+//     },
+//     is18:function(){
+//         return this.age>=18;
+//     }
+// }    // ! We have created a different object with all functions in it
+// function createUser(firstName,lastName,email,age,address){
+//     const user={};
+//     user.firstName=firstName;
+//     user.lastName=lastName;
+//     user.age=age;
+//     user.about=userMethods.about;
+//     user.is18=userMethods.is18;
+//     return user;
+// }
+// const user1=createUser('Aviral','Mishra','20');
+// const user2=createUser('harshit','shukla','21');
+// console.log(user1.about());
+// console.log(user2.about());
+
+
+// TODO: Solution using Object.create
+// ! the problem in storing methods in different object is that if we add new function to the object then we have to add it agian main funciton so we use object.create
+// const obj1={
+//     key1:'value1',
+//     key2:'value2'
+// }
+// const obj2=Object.create(obj1);
+// obj2.key3='value3'  // ! fir key2 is searched in obj2 , when not found then it is searched in obj1
+// console.log(obj2.key2)
+
+
+// TODO: Prototype
+// function hello(){
+//     console.log('hello world');
+// }   // ! in javascript function can be treated as function as well as object
+// hello();
+// ! we can add our own properties 
+// hello.myOwnProperty='unique value';
+// console.log(hello.myOwnProperty);
+// console.log(hello)
+
+// ! prototype is an empty object where we can add 
+// if (hello.prototype){z
+//     console.log('prototype is present');
+// }
+// else{
+//     console.log('prototype is not present');
+// }
+ 
+
+// TODO: Use prototype
+
+
+// TODO: class keyword 
+// class Creatuser{
+//     constructor(firstName,lastName,email,age,address){
+//         console.log('constructor called')
+//         this.firstName=firstName
+//         this.lastName=lastName
+//         this.email=email
+//         this.age=age
+//         this.address=address
+//     }
+//     about(){
+//         return `${this.firstName} is ${this.age} years old`
+//     }
+//     is18(){
+//         return this.age>=18;
+//     }
+//     sing(){
+//         return 'la la la la';
+//     }
+// }   // ! class constructor can not be called without new keyword
+// const user1=new Creatuser('Aviral','mishra','aviralm52@gmail.com',20,'my-address')
+// const user2=new Creatuser('harshit','vashistha','email@gmail.com',20,'my-address-2')
+// console.log(user1.about())
+// console.log(user2.is18())
+// console.log(user1)
+
+
+// TODO: class practice and 'extends' keyword
+// class Animals{
+//     constructor(name,age){
+//         this.name=name;
+//         this.age=age;
+//     }
+//     eat(){
+//         return `${this.name} is eating`
+//     }
+//     isCute(){
+//         return true;
+//     }
+// }
+
+// class Dog extends Animals{
+//         // ! this is inheritence
+//     constructor(name,age,speed){
+//         super(name,age);
+//         this.speed=speed;
+//     }      // ! super() use the constructor of parent class
+//     eat(){
+//         return `modified eat`
+//     }
+//     run(){
+//         return `${this.name} is running at ${this.speed}`
+//     }
+// }   // ! if there are two methods of same name then the method will be first checked in base class then in parent class
+// const tommy=new Dog('tommy',3,40);
+// console.log(tommy.eat())
+// console.log(tommy.isCute())
+// console.log(tommy.speed)
+// console.log(tommy.run())
+
+
+// TODO: getters and setters
+// class Person{
+//     constructor(firstName,lastName,age){
+//         this.firstName=firstName;
+//         this.lastName=lastName;
+//         this.age=age;
+//     }
+//     get fullName(){
+//         return `${this.firstName} ${this.lastName}`
+//     }
+//     set fullName(fullName){
+//         const [firstName,lastName]=fullName.split(' ')
+//         this.firstName=firstName;
+//         this.lastName=lastName
+//     }
+// }   // ! if we want to use fullName as a attribute then we have to use get in front of it
+// const person1=new Person('aviral','mishra',20);
+// console.log(person1.fullName);
+// person1.fullName='harshit vashisth';
+// console.log(person1)
+
+
+// TODO: Static method
+// class Person{
+//     constructor(firstName,lastName,age){
+//         this.firstName=firstName;
+//         this.lastName=lastName;
+//         this.age=age;
+//     }   // ! static method is accessed with the class name
+//     static classInfo(){
+//         return `this is person class`
+//     }
+// }
+// const person1=new Person('aviral','mishra',20);
+// console.log(Person.classInfo())
