@@ -968,7 +968,16 @@
 
 
 // TODO: Arrow functions and 'this'
-// TODO: Short Syntax
+// ! arrow doesn't have its own 'this' it takes this from one level above
+// const user1={
+//     firstName:'aviral',
+//     age:20,
+//     about: ()=>{
+//         console.log(this)
+//         console.log(this.firstName,this.age)
+//     }
+// }   // ! in this case when we call user1 'this' will be taken from one above which is 'window' object
+// user1.about()
 
 
 // TODO: Create functions to create multiple functions
@@ -1018,13 +1027,13 @@
 
 
 // TODO: Solution using Object.create
-// ! the problem in storing methods in different object is that if we add new function to the object then we have to add it agian main funciton so we use object.create
+// ! the problem in storing methods in different object is that if we add new function to the object then we have to add it agian in the main funciton so we use object.create
 // const obj1={
 //     key1:'value1',
 //     key2:'value2'
 // }
 // const obj2=Object.create(obj1);
-// obj2.key3='value3'  // ! fir key2 is searched in obj2 , when not found then it is searched in obj1
+// obj2.key3='value3'  // ! first key2 is searched in obj2 , when not found then it is searched in obj1
 // console.log(obj2.key2)
 
 
