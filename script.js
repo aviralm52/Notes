@@ -1155,3 +1155,199 @@
 // }
 // const person1=new Person('aviral','mishra',20);
 // console.log(Person.classInfo())
+
+
+
+
+////////////////////////// ! * PART 2 * ! /////////////////////////// 
+
+
+
+
+// * javascript works in two phases one is compilation and another is code execution
+// * compilation is done for error detection and scope calculation
+// * varibales are created in creation phase before execution, it is called hoisting
+
+
+//  ! 'hoisting' means the code will be available in 'global execution context' before executing it
+
+// console.log(this);
+// console.log(firstName);
+// var firstName='Aviral';
+// console.log(firstName);
+
+// console.log(firstName);
+// var firstName='aviral';  // ! variable declared with var can be accessed before but it will give 'undefined'
+// console.log(firstName)
+
+// console.log(firstName);
+// let firstName='aviral';  // ! variable declared with let cannot be accessed before initialization it will give error
+// console.log(firstName)   // ! the time for which the varaible declared with let remains uninitialilzed is known as 'temporal dead zone'
+
+// * 'let' and 'const' both are hoisted
+
+// * if anything is not found in local memeory then it will be finded in lexical scope it means where the particular function is present
+
+
+// TODO: Closures
+// function outerFunction(){
+//     function innerFunction(){
+//         console.log('Aviral Mishra');
+//     }
+//     return innerFunction;
+// }   // !  a function can return function
+// const ans=outerFunction();
+// console.log(ans)
+// ans();
+
+// * when a function is returned from another function it will be returned with variables of the local memory
+// * when a outer function returns a inner function then the inner function is returned with the local variables of the outer function
+
+
+// const square = (num)=>{
+//     return num**2;
+// }
+// console.log(square(4))
+
+// function myFunction(num){
+//     return num**2;
+// }
+ 
+// const cube= function(num){
+//     return num**3
+// }
+// console.log(cube(4))
+
+
+// function myFunction(power){
+//     return function(number){
+//         return number**power;
+//     }
+// }
+// const square=myFunction(2);
+// const ans=square(3);
+// console.log(ans)
+                 //// ! OR ! ////
+// const myFunction= (power)=>(number)=>number**power
+    // ! this type of code is called lambda code
+
+// function func(){
+//     let counter=0;
+//     return function (){
+//         if(counter<1){
+//             console.log('Hi you called me');
+//             counter++;
+//         }
+//         else{
+//             console.log('you called me twice');
+//         }
+//     }
+// }
+// const myFunc=func();
+// myFunc();
+// myFunc();
+// myFunc();
+
+
+// TODO: Linking javascript
+    //!  1. using script tag at starting - browser will stop parsing the html code as soon as it encounter script tag so the html code that is written after the script tag can not be used in the javascript file and it will give error if it is used 
+    // ! 2. using script tag at end - in this case js file will have access to complete html code but the code will wait for parsing 
+    // ! 3. using script tag with async - in this case loading of js file and parsing of the html code will continue simultaneously and once the js file is loaded it will start executing the code
+    // ! 4. using script tag with defer - in this case loading of js file and parsing will continue simultaneously and when the js file is loaded the code will still wait for parsing and then the execution will be done
+
+
+// TODO: DOM (Document Object Model)
+
+// * getElementById()
+// document.getElementById("id_name") // ! it will return object
+// console.log(document.getElementById("id_name"))   // ! to show it structured form
+// console.dir(document.getElementById("id_name"))  // ! to show it in raw form
+
+
+// * querySelector()
+// ! query selector is used for selecting anything
+// const mainHeading = document.querySelector("#main-heading") // ! for selecting id
+// const mainHeading = document.querySelector(".main-heading") // ! for selecting class
+// ! if there are multiple classes of same name then it will return the first class and will not check further
+// ! if we want to select all classes of same name then we will use
+// const mainHeading = document.querySelectorAll(".nav-items") // ! it will return node-list which is similar to array but it is not an array
+
+
+// * textContent and innerText
+// const mainHeading = document.getElementById("main-heading");
+// console.log(mainHeading.innerText);     // ! inner text will return only the part that is visible on screen while textContent will return every text 
+// mainHeading.textContent = "This is something else";
+// console.log(mainHeading.textContent);   // ! by textContent property we can change text
+
+
+// * change style of element
+// const mainHeading = document.querySelector("div.headline h2");  // ! we can select inert element also
+// console.log(mainHeading.style); // ! it is used to set style 
+// mainHeading.style.backgroundColor = "blue";
+// mainHeading.style.border = "20px solid green";
+
+
+// * get and set attributes
+// const link = document.querySelector("a");
+// console.log(link.getAttribute("href").slice(1)); // ! getattribute() will return attribute of a particular class or id
+// link.setAttribute("href", "https://codprog.com");
+// console.log(link.getAttribute("href"));
+
+// const inputElement = document.querySelector(".form-todo input");
+// console.log(inputElement.getAttribute("type"));
+
+
+// * get multiple elements using getElements by class name 
+// * get multiple elements items using querySelectorAll
+// const navItems = document.getElementsByClassName("nav-item"); // ! HTMLCollection(it is an array like object)
+// console.log(navItems);
+// console.log(Array.isArray(navItems));  // ! it will return false 
+// const navItems = document.querySelectorAll(".nav-item"); // ! NodeList
+// console.log(navItems[1]);
+
+// * getElementByTagName() it selects the element of a particular tag name 
+
+// TODO: iterate elements
+// const navItems=document.getElementsByClassName("nav-items")
+
+// ! in html collection simple for loop and for-of loop can be used only
+// for(let i=0; i< navItems.length; i++){
+//     console.log(navItems[i]);
+//     const navItem = navItems[i];
+//     navItem.style.backgroundColor = "#fff";
+//     navItem.style.color = "green";
+//     navItem.style.fontWeight = "bold";
+// }
+
+// for(let navItem of navItems){
+//     navItem.style.backgroundColor = "#fff";
+//     navItem.style.color = "green";
+//     navItem.style.fontWeight = "bold";
+// }
+
+// ! html collection can be converted to array by 
+// navItems=Array.from(navItems)
+
+// ! in node list for each loop can also be used
+
+
+// TODO: inner html
+// const headline = document.querySelector(".headline");
+// console.log(headline.innerHTML);
+// headline.innerHTML = "<h1>Inner html changed </h1>";
+// headline.innerHTML += "<button class= \"btn\"> Learn More </button>"  // ! this will add the written part to html
+// console.log(headline.innerHTML);
+
+
+// TODO: DOM Tree
+// TODO: Traversing DOM tree
+// const rootNode=document.getRootNode();
+// console.log(rootNode)       // ! this will return 'document' as it is the root node 
+// console.log(rootNode.childNodes)    // ! childnode of the root node is 'HTML'
+// const headElementNode=rootNode.childNodes[0];
+// console.log(htmlElementNode.childNodes);
+
+// console.log(headElementNode.nextSibling)    // ! this will return other siblings of the same parent node
+
+// const h1=document.querySelector('h1')
+// console.log(h1.parentNode)  //  ! this will return parent node of the particular element
