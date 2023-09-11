@@ -30,11 +30,11 @@
 // * reference type - use heap memory
 // let arr1=[1,2,3,4]
 // let arr2=arr1
-// console.log("array1",arr1)    // Output: [1,2,3,4] 
-// console.log("array2",arr2)    // Output: [1,2,3,4]
+// console.log("array1",arr1)
+// console.log("array2",arr2)
 // arr1.push(50)   // ! value changes in both
-// console.log("array1",arr1)   // Output: [1,2,3,4,50]
-// console.log("array2",arr2)   // Output: [1,2,3,4,50]
+// console.log("array1",arr1)
+// console.log("array2",arr2)
 
 
 // TODO: variables
@@ -50,20 +50,18 @@
 
 
 //TODO: Arithmatic Operations
-// let value1=10       
-// console.log(value1+20)      // Output: 30
-// console.log(value1-20)      // Output: -10
-// console.log(value1*2)       // Output: 20
-// console.log(value1/2)       // Output: 5
-// console.log(value1/3)       // Output: 3.333333333333335
-// console.log(value1**2)      // Output: 100
-// console.log("1" + 2)        // Output: 12
-// console.log(1 + "2")        // Output: 12
-// console.log("1" + 2 + 2)    // Output: 122
-// //* first value is in string so all the rest values will be treated as string
-// console.log(1 + 2 + "2")    // Output: 32
-// //* first the calculation of 1+2 will be done and then will be concatenated with "2"
-// console.log(1 + 2 + "3" + 4)   // output: 334
+// let value1=10
+// console.log(value1+20)
+// console.log(value1-20)
+// console.log(value1*2)
+// console.log(value1/2)
+// console.log(value1/3)
+// console.log(value1**2)
+// console.log("1" + 2)
+// console.log(1 + "2")
+// console.log("1" + 2 + 2)  // first value is in string so all the rest values will be treated as string
+// console.log(1 + 2 + "2")  // first the calculation of 1+2 will be done and then will be concatenated with "2"
+// console.log(1 + 2 + "3" + 4)
 
 
 // first_name // * snake case writing
@@ -92,15 +90,15 @@
 //     var x = 2;
 //     let y = 2;
 // }
-// console.log(x);     // Output: 2     
-// console.log(y);     // Output: 1
+// console.log(x);
+// console.log(y);
 
 // if (true){
 //     var a = 10;
 //     const b = 20;
 // }
-// console.log(a);     // output: 10
-// console.log(b);     // output: error
+// console.log(a);
+// console.log(b);
 
 
 // TODO: Constants
@@ -122,18 +120,18 @@
 // let undefInt = Number(undef)
 // let nullValInt = Number(nullVal)
 // let boolInt = Number(bool)
-// console.log(nameInt, ageInt, undefInt, nullValInt, boolInt)   // Output: NaN 20 NaN 0 1
+// console.log(nameInt, ageInt, undefInt, nullValInt, boolInt)
 
 // let check = 0
 // let bool = Boolean(check)
-// console.log(typeof bool , bool )  // Output: boolean false
+// console.log(typeof bool , bool )
 
 // let check = NaN
-// console.log('NaN', typeof check );      // Output: NaN number
+// console.log('NaN', typeof check );
 
-// console.log(+true)                      // Output: 1
+// console.log(+true)
 // let stringVal = "23"
-// console.log(typeof +stringVal)          // Output: numbers
+// console.log(typeof +stringVal)
 
 
 // TODO: prototype
@@ -143,16 +141,15 @@
 
 // TODO: typeof method
 // let age=22
-// console.log(typeof(age))        // Output: number
-// console.log(typeof 25)          // Output: number
-// console.log(typeof "Aviral")    // Ouptut: string
-// age=age+""                      
-// //! number can be changed to string by adding ("") at last
-// console.log(typeof age)         // Output: string
+// console.log(typeof(age))     // ! "typeof" method
+// console.log(typeof 25)
+// console.log(typeof "Aviral")
+// age=age+""   // ! number can be changed to string by adding ("") at last
+// console.log(typeof age)
 // let str="22"
-// console.log(typeof str)         // Output: string
+// console.log(typeof str)
 // str=+str    // ! string can be converted to number by adding a '+' symbol in front
-// console.log(typeof str)         // Output: number
+// console.log(typeof str)
 
 // * We can also use typecasting for this purose
 // let num=33
@@ -166,51 +163,48 @@
 
 // let a=10
 // let b=20
-// console.log((a+"")+(b+""))          // Output: 1020
+// console.log((a+"")+(b+""))
 // let c="10"
 // let d="20"
-// console.log((+c)+(+d))              // Output: 30
+// console.log((+c)+(+d))
 
 
 
 // TODO: Undefined , null , BigInt
 // let name
-// console.log(typeof name)            // Output: undefined
-// //! it shows undefined untill variable is assigned a value
+// console.log(typeof name) // ! it shows undefined untill variable is assigned a value
 
 // const name2     // ! constant need to be given a value
-// console.log(typeof name2)    
+// console.log(typeof name2)
 
-// let myVar = null
-// console.log(typeof myVar) // ! typeof null gives object
+// let myvar=null
+// console.log(typeof myvar) // ! typeof null gives object
 
 // console.log(Number.MAX_SAFE_INTEGER) // ! largest number 
-// let mynum=BigInt(12)    
-// console.log(typeof mynum)           // Output: bigint
+// let mynum=BigInt(12)
+// console.log(typeof mynum)
 // let mynum2=123n
-// console.log(mynum)                  // Output: 12n
-// console.log(typeof mynum2)  
+// console.log(mynum)
+// console.log(typeof mynum2)
 
 
 // TODO: Booleans & comparison operator
 // let num1=5,num2=7
 // console.log(num1>num2)
 
-let a="10",b=10
+// let a="10",b=10
 // console.log(a==b)   // ! "==" only checks tha value not the datatype
 // console.log(a===b)  // ! "===" checks value as well as datatype - strict checking
 
-// console.log(a!=b)       // Output: false
-// console.log(a!==b)      // Output: true
+// console.log(a!=b)
+// console.log(a!==b)
 
-// console.log("2" > 1)        // Output: true
-// console.log("02" > 1)       // Output: true
+// console.log("2" > 1)
+// console.log("02" > 1)
 
-// console.log(null > 0)          // Output: false      
-// console.log(null == 0)         // Output: false
-// console.log(null >= 0)         // Output: true  
-// console.log(null <= 0)         // Output: true
-// //! comparison operator converts null to number which is 0 while equality operator(==) does not convert it to number
+// console.log(null > 0)
+// console.log(null == 0)
+// console.log(null >= 0)  // ! comparison operator converts null to number which is 0 while equality operator(==) does not convert it to number
 
 
 //////////////////////////////////////// TODO: String  /////////////////////////////////////////////
@@ -262,7 +256,7 @@ let a="10",b=10
 
 // TODO: split()
 // const newString = "split ko check kar rahe hai"
-// const words = newString.split(' ', 4)        // Output: ['split', 'ko', 'check', 'kar']
+// const words = newString.split(' ', 4)
 // console.log(words)
 
 
@@ -292,7 +286,6 @@ let a="10",b=10
 // let st2="bbbb"
 // console.log(st1+" % "+st2)   // ! string concatenation
 
-
 // TODO: Template string
 // let age=18
 // let name="Aviral"
@@ -306,30 +299,30 @@ let a="10",b=10
 //////////////////////////////////////// TODO: Numbers & Maths /////////////////////////////////////////////
 
 // const balance = new Number(700)
-// console.log(typeof balance, balance)        // Output: object [Number:700]
+// console.log(balance)
 
 // TODO: toString()
 // const value = 400
 // const stringVal = value.toString()
-// console.log(typeof stringVal, stringVal)
+// console.log(stringVal, typeof stringVal)
 
 
 // TODO: toFixed()
 // const value = 670
-// console.log(value.toFixed(4))       //  Output: 670.0000
+// console.log(value.toFixed(3))
 
 
 // TODO: toPrecision()
 // const otherNumber = 159.8736
-// console.log(otherNumber.toPrecision(1))     // Output: 2e+2
-// console.log(otherNumber.toPrecision(2))     // Output: 1.6e+2
-// console.log(otherNumber.toPrecision(3))     // Output: 160
-// console.log(otherNumber.toPrecision(4))     // Output: 159.9
+// console.log(otherNumber.toPrecision(1))
+// console.log(otherNumber.toPrecision(2))
+// console.log(otherNumber.toPrecision(3))
+// console.log(otherNumber.toPrecision(4))
 
 
 // TODO: toLocaleString()
 // const hundreds = 1000000
-// console.log(hundreds.toLocaleString())         // Output: 10,00,000
+// console.log(hundreds.toLocaleString())   
 
 
 // TODO: Max & Min values
@@ -344,32 +337,32 @@ let a="10",b=10
 
 //////////////////////////////////////// TODO: Date & Time  ////////////////////////////////////////
 // let myDate = new Date()
-// console.log(typeof myDate)              // Output: Object
-// console.log(myDate.toString())          // Output: Mon Sep 11 2023 21:49:33 GMT+0530 (India Standard Time)
-// console.log(myDate.toDateString())      // Output: Mon Sep 11 2023
-// console.log(myDate.toISOString())       // Output: 2023-09-11T16:19:33.385Z
-// console.log(myDate.toLocaleString())    // Output: 11/9/2023, 9:49:33 pm
-// console.log(myDate.toLocaleDateString())    // Output: 11/9/2023
-// console.log(myDate.toJSON())            // Output: 2023-09-11T16:19:33.385Z
+// console.log(typeof myDate)
+// console.log(myDate.toString())
+// console.log(myDate.toDateString())
+// console.log(myDate.toISOString())
+// console.log(myDate.toLocaleString())  // ✅
+// console.log(myDate.toLocaleDateString())
+// console.log(myDate.toJSON())
 
 // let myCreatedDate = new Date(2023, 0, 19)   // ! months in JS starts from 0
-// console.log(myCreatedDate.toDateString())       // Output: Thu Jan 19 2023
-// console.log(myCreatedDate.toLocaleString())     // Output: 19/1/2023, 12:00:00 am
+// console.log(myCreatedDate.toDateString())
+// console.log(myCreatedDate.toLocaleString())
 
 // let myCreatedDate = new Date(2023, 0, 17, 5, 3)
-// console.log(myCreatedDate.toLocaleString());        // Output: 17/1/2023, 5:03:00 am
+// console.log(myCreatedDate.toLocaleString());
 // let myCreatedDate2 = new Date("11-17-2023")
-// console.log(myCreatedDate2.toLocaleString());       // Output: 17/11/2023, 12:00:00 am
+// console.log(myCreatedDate2.toLocaleString());
 
 // let myTimeStamp = Date.now()
 // let myCreatedDate = new Date("01-14-2023")
-// console.log(myTimeStamp.toLocaleString())        // Output: 16,94,44,93,97,491
-// console.log(myCreatedDate.getTime())             // Output: 1673634600000
+// console.log(myTimeStamp.toLocaleString())
+// console.log(myCreatedDate.getTime())
 
 // let newDate = new Date()
-// console.log(newDate.toLocaleString())        //Output: 11/9/2023, 9:54:12 pm
-// console.log(newDate.getDay())                //Output: 1 (aaj monday hai)
-// console.log(newDate.getMonth())              //Output: 8 (months starts from 0)
+// console.log(newDate.toLocaleString())
+// console.log(newDate.getDay())
+// console.log(newDate.getMonth())
 
 
 //////////////////////////////////////// TODO: Conditionals & Loops /////////////////////////////////// 
@@ -667,7 +660,7 @@ let a="10",b=10
 // }
 // console.log(person.hobbies) // ! value can be accessed by "." operator 
 // console.log(person["name"]) // ! key is always written in " " as in JS key is by default in string
-// //! we can not access key names with spaces using '.' operator
+// // ! we can not access key names with spaces using '.' operator
 // console.log(typeof person['mySym']);
 // console.log(person['mySym']);
 
@@ -698,24 +691,23 @@ let a="10",b=10
 
 
 // TODO: Creating objects using constructors
-// const user = new Object()
-// console.log(user);
+const user = new Object()
+console.log(user);
 
 
 // TODO: Iteration of objects
-// const person={
-//     name:"Aviral",
-//     course:"B.Tech",
-//     age:20
-// }
+const person={
+    name:"Aviral",
+    course:"B.Tech",
+    age:20
+}
 // for (let a in person){  // ! in array for-in gives index but in objects for-in will give the key
 //     console.log(`${a} : ${person[a]}`)
 //     console.log(person.a)    // ! This will give undefined as it will check the key with name "a" in person which it will not get 
 // }
-// console.log()
-// console.log('Keys: ', Object.keys(person))    // ! It will return a array of keys of object
-// console.log('Values: ',Object.values(person))
-// console.log('Key-Value pairs: ',Object.entries(person))   // ! 
+// console.log(Object.keys(person))    // ! It will return a array of keys of object
+// console.log(Object.values(person))
+// console.log(Object.entries(person))   // ! 
 // console.log(person.hasOwnProperty('names'))
 // console.log(Array.isArray(Object.keys(person))) // * to check whether it is an array or not
 
@@ -814,7 +806,6 @@ let a="10",b=10
 // const [obj1, obj2] = users
 // console.log(obj1, obj2);
 
-//////////////////////////////////////////////// TODO: Functions ///////////////////////////////////////////////
 
 // TODO: Function Declaration
 // function hello(){
@@ -822,35 +813,17 @@ let a="10",b=10
 // }
 // hello()
 // hello()
+// hello()
 
 // function sum_two_numbers(num1,num2){
-//     console.log(num1, num2)             // Output: undefined undefined
 //     return num1+num2;
 // }
-// console.log(sum_two_numbers(),'\n') // ! if we will not pass any number it will return "Nan" (not a number)
-// console.log(sum_two_numbers(3,8),'\n') 
+// console.log(sum_two_numbers(3,8)) // ! if we will not pass any number it will return "Nan" (not a number)
 
 // function iseven(num){
 //     return num%2===0;
 // } 
 // console.log(iseven(24))
-
-// function returnCheck(number1, number2){
-//     return number1, number2
-// }
-// console.log(returnCheck(5,9));
-
-// function calculateCartPrice(num1, ...remainingNums){
-//     console.log(num1);              // Output: 100
-//     return remainingNums
-// }
-// console.log(calculateCartPrice(100, 200, 400, 500))
-
-// //! Default parameter
-// const fun = (a,b=5) =>{
-//     console.log(a+b);
-// }
-// fun(7);
 
 
 // TODO: Function Expressions
@@ -858,11 +831,10 @@ let a="10",b=10
 //     return num%2===0;
 // }
 // console.log(iseven(152))
-// //! we can call function before its declaration in case of function declaration but in case of function expression it will give error
 
 
 // TODO: Arrow Functions
-// const iseven = (num) =>{     // ! it is not necessary to use "( )" when passing only single argument 
+// const iseven =(num) =>{     // ! it is not necessary to use "( )" when passing only single argument 
 //     return num%2===0;   
 // }
 // console.log(iseven(267))
@@ -872,33 +844,10 @@ let a="10",b=10
 // } 
 // console.log(sum_three_numbers(4,9,7));
 
-// //! Implicit Return - if there is only single statement then we can return it without using return statement
-// const addTwo = (num1, num2) => num1 + num2
-// console.log(addTwo(5,7))
 
-// const printCheck = () => `my name is Aviral Mishra`
-// console.log(printCheck())
-
-// const returnObject = () => ({username : 'Aviral'})      // * for returning objects we need to enlcose them in {}
-// console.log(returnObject());
-
-
-// TODO: Immediately Invoked Function Expression (IIFE)
-
-// //! IIFE are used to prevent polluting the global namespace, if create a normal function then it will be added to the global namespace but an IIFE remain only inside of scope 
-// //* (function declaration) (function calling) 
-// (function selfCalling() {        // ! Named IIFE
-// console.log("Printing IIFE");
-// })();        // * we need to use ; after IIFE as it does not where to stop its context
-
-// ( (name) => {
-//     console.log(`${name} logged in`);
-// })('Aviral');
-
-
-// TODO: Function inside function
-// const app = () =>{
-//     const myfunc = () =>{
+// TODO: Funciton inside function
+// const app = ()=>{
+//     const myfunc =()=>{
 //         console.log('hello from myfunc');
 //     }
 //     const addtwo = (num1,num2) =>{
@@ -910,6 +859,31 @@ let a="10",b=10
 // }
 // app();
 
+
+// TODO: Lexical scope
+// {            // ! 'let' and 'const' has "block" scope it means they can't be accessed outside block
+//     const name="Aviral";  
+//     console.log(name);  
+// }
+// {
+//     const name="Mishra";
+//     console.log(name);
+// }
+// console.log(name)
+
+// {           // ! 'var' has 'funciton' scope it means they can be accessed anywhere
+//     var name="Aviral";
+//     console.log(name);
+// }
+// var name="Mishra"
+// console.log(name);
+
+
+// TODO: Default parameters
+// const fun = (a,b=5) =>{
+//     console.log(a+b);
+// }
+// fun(7);
 
 
 // TODO: Rest parameters
@@ -1187,7 +1161,6 @@ let a="10",b=10
 // TODO: Create your own methods (THIS keyword)
 // function personInfo(){
 //     console.log(`person name is ${this.firstName} and his age is ${this.age}`);
-//     console.log(this, '\n')
 // }   // ! 'this' keyword takes the value of the object which calls it
 // const person1={
 //     firstName:'Aviral',
