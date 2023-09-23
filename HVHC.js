@@ -196,7 +196,7 @@
 // let num1=5,num2=7
 // console.log(num1>num2)
 
-let a="10",b=10
+// let a="10",b=10
 // console.log(a==b)   // ! "==" only checks tha value not the datatype
 // console.log(a===b)  // ! "===" checks value as well as datatype - strict checking
 
@@ -375,7 +375,7 @@ let a="10",b=10
 //////////////////////////////////////// TODO: Conditionals & Loops /////////////////////////////////// 
 
 
-// TODO: if-else if-else
+// TODO: if - else if - else
 // let age=17
 // if(age>18){
 //     console.log("Age is greater than 18")
@@ -396,7 +396,8 @@ let a="10",b=10
 // }
 
 
-// TODO: Falsy value (False , "" , null , undefined , 0)
+// //* Falsy value (False , "" , null , undefined , 0, -0, NaN, BigInt 0n)
+// //* Truthy vale ("0", "false", " ", [], {}, function(){} )
 // let name=""
 // if(name){
 //     console.log("hi")
@@ -404,6 +405,16 @@ let a="10",b=10
 // else{
 //     console.log("hello")
 // }
+
+// console.log(false == 0, false == '', 0 == ' ')
+
+
+// TODO: Nullish Coalescing Operator - checks b/w two values and assigns the not null or not undefined value
+// let val1 = 5 ?? 10
+// let val2 = null ?? 15
+// let val3 = undefined ?? 20
+// let val4 = null ?? 25 ?? 30
+// console.log(val1, val2, val3, val4)
 
 
 // TODO: Ternary Operator
@@ -504,7 +515,7 @@ let a="10",b=10
 // }while(i<10)
 
 
-//////////////////////////////////////////// TODO: Arrays ////////////////////////////////////////////////
+////////////////////////////////////////////////////// TODO: Arrays /////////////////////////////////////////////////////////
 
 // let fruits=["apple","mango","grapes", 56, null, undefined]
 // console.log(fruits)
@@ -643,7 +654,8 @@ let a="10",b=10
 // console.log(fruits[fruits.length-1])
 
 
-// TODO: for-of & for-in loop 
+// TODO: for-of & for-in loop - it also works with map
+// ! for-of loop only works with array and not with objects
 // const fruits=["apple","mango","banana"]
 // for(let a of fruits){
 //     console.log(a)
@@ -652,7 +664,187 @@ let a="10",b=10
 //     console.log(`a: ${a}  fruits[a]: ${fruits[a]}`)
 // }
 
-//////////////////////////////////////////////////// TODO: Objects ////////////////////////////////////////////
+
+// TODO: Imp. Array methods (forEach,map,filter,reduce)
+
+// * forEach 
+// const numbers=[4,2,5,8];
+// function myFunc(number,index){
+//     console.log(`index is ${index} , number is ${number*2}`);
+// }       // ! forEach takes callback as input and apply that function to every element of the object 
+// numbers.forEach(myFunc);
+
+// numbers.forEach(function(number,index){      // * using function directly inside forEach loop
+//     console.log(`index is ${index} , number is ${number*2}`);
+// })
+
+// numbers.forEach((num) => {      // * using arrow function in forEach
+//     console.log(num)   
+// })
+
+// ! we can also use forEach method for getting values from an array of objects
+// const myCoding = [
+//     {
+//         languageName : "Javascript",
+//         langaugeFileName : "js"
+//     },
+//     {
+//         languageName : "Java",
+//         langaugeFileName : "java"
+//     },
+//     {
+//         languageName : "Python",
+//         langaugeFileName : "py"
+//     }
+// ]
+// myCoding.forEach( (item) => {
+//     console.log(item.languageName)
+// })
+
+//! forEach method does not return anything, but what if we want to perform any action on a particular condition, so in that case we use filter method
+
+
+// * filter  -  filters value according to a particualr method
+// const numbers=[1,3,2,6,7,4,8]
+
+// function isEven(num){
+//     return num%2===0;
+// }                                // ! filter always add the values(that returns True) to the array 
+// const Even=numbers.filter(isEven)
+// console.log(Even);
+
+// const isEven = function (num){
+//     return num%2===0;
+// }
+// const Even = numbers.filter(isEven);
+// console.log(Even);
+
+// const isEven = numbers.filter((num)=>{
+//     return num%2===0;
+// })
+// console.log(isEven)
+
+
+
+// * Map  -  changes value of array
+// const numbers = [1,2,3,4,5,6,7,8,9]
+// const square = function(number){
+//     return number*number;
+// }       // ! map creates a new array and add the returned element to it
+// const squareNumber = numbers.map(square);
+// console.log(squareNumber);
+
+// const users=[
+//     {firstName:'Aviral',age:20},
+//     {firstName:'Mayank',age:21},
+//     {firstName:'Akhil',age:20},
+//     {firstName:'Aakash',age:22},
+// ]
+// const userName=users.map((user)=>{
+//     return user.firstName;
+// });
+// console.log(userName);
+
+
+//! Chaining - we can use a method just after another method
+// const chainingNumbers = numbers
+//                             .map((num) => num*10)
+//                             .map((num) => num+1)        //* if we use {} then we have to return the value as it starts a block scope
+//                             .filter((num) => num%3 == 0)
+// console.log(chainingNumbers);
+
+
+// * reduce
+// const numbers=[1,2,3,4,5]
+// const sum=numbers.reduce((accumulator,currentValue)=>{
+//     console.log(`accumulator: ${accumulator}, currenValue: ${currentValue}`)
+//     return accumulator+currentValue;
+// })                          // ! it returns the single value after performing the desired operation on the object
+// console.log(sum);
+
+// const userCart=[
+//     {productId:1,productName:'mobile',price:14000},
+//     {productId:2,productName:'laptop',price:23000},
+//     {productId:3,productName:'tv',price:16000},
+// ]
+// const totalPrice=userCart.reduce((accumulator,currentValue)=>{
+//     console.log(`accumulator: ${accumulator}, currenValue: ${currentValue.price}`)
+//     return accumulator + currentValue.price
+// },0)
+// console.log(totalPrice)
+
+// const totalPrice = userCart.reduce((acc, item) => acc + item.price, 0)
+// console.log(totalPrice);
+
+// * sort
+// const numbers=[5,9,122,40,90,730]
+// numbers.sort();     // ! javascript sort the array according to 'ascii' value so it will not sort the numbers as desired 
+// console.log(numbers)
+
+// const names=['abc','aviral','harhsit','Acd','aBd'];
+// names.sort();
+// console.log(names);
+
+// * sorting according to numbers
+// const numbers=[5,9,122,40,90,730];
+// numbers.sort((a,b)=>{
+//     console.log(`a: ${a},  b: ${b}`)
+//     return a-b;
+// })      // ! if 'a-b' is '+' then 'b' will be put first in array and if 'a-b' is '-' then 'a' will be put first
+// console.log(numbers);
+
+// const products=[
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]
+// const lowToHigh=products.slice(0).sort((a,b)=>{
+//     return a.price-b.price;
+// })  // ! for high to low we will do b.price-a.price
+// console.log(lowToHigh);
+
+// * find 
+// const arr=['hello','cat','dog','lion'];
+    // //! "find" checks a particular condition in an array and returns its first occurence only
+// function myfunc(str){
+//     return str.length===3;
+// }
+// const ans=arr.find(myfunc);
+
+// const ans=arr.find((str)=>{
+//     return str.length===3;
+// })
+
+// const ans=arr.find((str) => str.length === 3);
+
+// console.log(ans)
+
+// * every
+// const products=[    // ! 'every' method checks every value of the array for a particular condition and returns 'true' if all elements of array satisfies the condition
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]
+// const ans=products.every((prod) => prod.price < 10000);
+// console.log(ans);
+
+// * some
+// const products=[
+//     {pID:1,pName:'p1',price:300},
+//     {pID:2,pName:'p2',price:3000},
+//     {pID:3,pName:'p3',price:200},
+//     {pID:4,pName:'p4',price:8000},
+//     {pID:5,pName:'p5',price:500},
+// ]   // ! 'some' will return true if any of the element satisfies the conditon
+// const ans=products.some((prod) => prod.price < 500);
+// console.log(ans);
+
+
+////////////////////////////////////////////////////// TODO: Objects ////////////////////////////////////////////////////////
 // ! Objects can be created using literal or by using constructor
 // TODO: creating object using literals
 // * It is also a reference types and have key-value pair
@@ -788,7 +980,7 @@ let a="10",b=10
 // console.log(var1, var2, rest_of_prop)
 
 
-// TODO: Object instide Array
+// TODO: Object inside Array
 // const users=[
 //     {userID:1,name:"Aviral",gender:"male"},
 //     {userID:2,name:"nobody",gender:"male"},
@@ -801,18 +993,19 @@ let a="10",b=10
 
 // TODO: Nested Destructuring
 // const users=[
-//     {userID:1,name:"Aviral",gender:"male"},
-//     {userID:2,name:"nobody",gender:"male"},
+//     {userID:1,name:"nobody",gender:"male"},
+//     {userID:2,name:"Aviral",gender:"male"},
 //     {userID:3,name:"somebody",gender:"female"}
 // ];
 // const [user1,user2,user3]=users;
 // console.log('user1: ', user1,'  user3: ', user3)
 
 // const [{name},,{gender}] = users; // ! using "{}" for selecting particular key inside an object
-// console.log(name,gender)
+// console.log(name,gender, '\n')
 
 // const [obj1, obj2] = users
 // console.log(obj1, obj2);
+
 
 //////////////////////////////////////////////// TODO: Functions ///////////////////////////////////////////////
 
@@ -868,7 +1061,7 @@ let a="10",b=10
 // console.log(iseven(267))
 
 // const sum_three_numbers = (num1,num2,num3) =>{
-//     return (num1+num2+num3);
+//     return (num1+num2+num3);             //! when we use {} then it creates a block scope so we have to return the value otherwise if there is only single value and we hadn't used {} then there is no need of return
 // } 
 // console.log(sum_three_numbers(4,9,7));
 
@@ -934,6 +1127,7 @@ let a="10",b=10
 //     gender:'male',
 //     age:500
 // }
+
 // function details(obj){
 //     console.log(person.name);
 //     console.log(person.gender);
@@ -967,144 +1161,11 @@ let a="10",b=10
 //     }
 //     return hello;
 // }
-// const ans=myFunc();
+// const ans = myFunc();
 // console.log(ans());
 
 
-// TODO: Imp. Array methods (forEach,map,filter,reduce)
-
-// * forEach 
-// const numbers=[4,2,5,8];
-// function myFunc(number,index){
-//     console.log(`index is ${index} and number is ${number*2}`);
-// }       // ! forEach takes callback as input and apply that function to every element of the object 
-// numbers.forEach(myFunc);
-
-// numbers.forEach(function(number,index){
-//     console.log(`index is ${index} , number is ${number*2}`);
-// })
-
-// * Map 
-// const numbers=[3,4,6,1,8]
-// const square=function(number){
-//     return number*number;
-// }       // ! map creates a new array and add the returned element to it
-// const squareNumber=numbers.map(square);
-// console.log(squareNumber);
-
-// const users=[
-//     {firstName:'Aviral',age:20},
-//     {firstName:'Mayank',age:21},
-//     {firstName:'Akhil',age:20},
-//     {firstName:'Aakash',age:22},
-// ]
-// const userName=users.map((user)=>{
-//     return user.firstName;
-// });
-// console.log(userName);
-
-// * filter
-// const numbers=[1,3,2,6,7,4,8]
-
-// function isEven(num){
-//     return num%2===0;
-// }    // ! filter always add the values to the array that return TRUE
-// const Even=numbers.filter(isEven)
-// console.log(Even);
-
-// const isEven=function (num){
-//     return num%2===0;
-// }
-// const Even=numbers.filter(isEven);
-// console.log(Even);
-
-// const isEven=numbers.filter((num)=>{
-//     return num%2===0;
-// })
-// console.log(isEven)
-
-// * reduce
-// const numbers=[1,2,3,4,5]
-// const sum=numbers.reduce((accumulator,currentValue)=>{
-//     return accumulator+currentValue;
-// })   // ! it returns the single value after performing the desired operation on the object
-// console.log(sum);
-
-// const userCart=[
-//     {productId:1,productName:'mobile',price:10000},
-//     {productId:2,productName:'laptop',price:25000},
-//     {productId:3,productName:'tv',price:15000},
-// ]
-// const totalPrice=userCart.reduce((price,currentValue)=>{
-//     return price+currentValue.price
-// },0)
-// console.log(totalPrice)
-
-// * sort
-// const numbers=[5,9,122,40,90,730]
-// numbers.sort();     // ! javascript sort the array according to 'ascii' value so it will not sort the numbers as desired 
-// console.log(numbers)
-
-// const names=['abc','aviral','harhsit','Acd','aBd'];
-// names.sort();
-// console.log(names);
-
-        // * sorting according to numbers
-// const numbers=[5,9,122,40,90,730];
-// numbers.sort((a,b)=>{
-//     return a-b;
-// })      // ! if 'a-b' is '+' then 'b' will be put first in array and if 'a-b' is '-' then 'a' will be put first
-// console.log(numbers);
-
-// const products=[
-//     {pID:1,pName:'p1',price:300},
-//     {pID:2,pName:'p2',price:3000},
-//     {pID:3,pName:'p3',price:200},
-//     {pID:4,pName:'p4',price:8000},
-//     {pID:5,pName:'p5',price:500},
-// ]
-// const lowToHigh=products.slice(0).sort((a,b)=>{
-//     return a.price-b.price;
-// })  // ! for high to low we will do b.price-a.price
-// console.log(lowToHigh);
-
-// * find 
-// const arr=['hello','cat','dog','lion'];
-    // ! "find" checks a particular condition in an array and returns its first occurence only
-// function myfunc(str){
-//     return str.length===3;
-// }
-// const ans=arr.find(myfunc);
-
-// const ans=arr.find((str)=>{
-//     return str.length===3;
-// })
-
-// const ans=arr.find((str)=>str.length===3);
-
-// console.log(ans)
-
-// * every
-// const products=[    // ! 'every' method checks every value of the array for a particular condition and returns 'true' if all elements of array satisfies the condition
-//     {pID:1,pName:'p1',price:300},
-//     {pID:2,pName:'p2',price:3000},
-//     {pID:3,pName:'p3',price:200},
-//     {pID:4,pName:'p4',price:8000},
-//     {pID:5,pName:'p5',price:500},
-// ]
-// const ans=products.every((prod)=>prod.price<10000);
-// console.log(ans);
-
-// * some
-// const products=[
-//     {pID:1,pName:'p1',price:300},
-//     {pID:2,pName:'p2',price:3000},
-//     {pID:3,pName:'p3',price:200},
-//     {pID:4,pName:'p4',price:8000},
-//     {pID:5,pName:'p5',price:500},
-// ]   // ! 'some' will return true if any of the element satisfies the conditon
-// const ans=products.some((prod)=>prod.price<500);
-// console.log(ans);
+//////////////////////////////////////////////////////////// TODO: Sets /////////////////////////////////////////////////////
 
 
 // TODO: Sets 
@@ -1155,8 +1216,9 @@ let a="10",b=10
 //     id :1,
 //     name:'Aviral'
 // };
-// const extraInfo=new Map()
+// const extraInfo = new Map()
 // extraInfo.set(person,{age:20,gender:'male'});
+// console.log("extraInfo :- ", extraInfo)
 // console.log(extraInfo.get(person).gender)
 
 
@@ -1169,9 +1231,9 @@ let a="10",b=10
 // obj.key3='value3'
 // console.log(obj)
 // console.log(obj2)
-//                         // OR
-// const obj2=Object.assign({},obj);
-// obj.key3='value3'
+//                        //* OR
+// const obj2 = Object.assign({},obj);
+// obj.key3 = 'value3'
 // console.log(obj)
 // console.log(obj2)
 
@@ -1212,32 +1274,43 @@ let a="10",b=10
 
 // TODO: Call , Apply and Bind methods
 
-// * Call
+// * Call - call method passes the current execution context to any other function  - Borrowing methods
+// * the call() method have the context of the object which is passed to it,
+// * Example - if we call user.getDetails.call(user2) it means we are calling the getDetails() method of the 'user' object with the context or values of 'user2' object
+
 // function hello(){
 //     console.log("Hello World");
 // }
 // hello.call()
 
 // const user1={
-//     firstName:'Aviral',
-//     age:20,
-//     about:function(hobby){
-//         console.log(this.firstName,this.age,hobby);
+//     firstName : 'Aviral',
+//     age : 20,
+//     about : function(hobby){
+//         console.log(this.firstName, this.age, hobby);
 //     }
 // }   // ! we can call a function from another function using 'call' method
 // const user2={
-//     firstName:'Rachit',
+//     firstName:'Ankit',
 //     age:19
 // }
-// user1.about.call(user2,'guitar')
+// user1.about.call(user2,'guitar')       // * the context of user2 will be passed to 'about' property of user1
+
+// function greet(){
+//     console.log(`Welcome ${this.firstName}`)
+// }
+// greet.call(user1)               // * here we had created a function and calling it twice with different context, first with user1 and second time with user2
+// greet.call(user2)
+
 
 // * Apply
-// user1.about.apply(user1,['guitar'])
+// user1.about.apply(user2,['guitar'])
     // ! it is same as "call" but the arguments are passed in array
 
 
-// * Bind
-// const func=user1.about.bind(user1,'casio')
+// * Bind - it is same as call but it creates an instance of the function and bind it to given object and returns a function that can be called later
+// const func = user1.about.bind(user2,'casio')
+// console.log(func);
 // func();  // ! this method binds the reference of a function with another one
 
 
@@ -1491,7 +1564,7 @@ let a="10",b=10
 // function myFunction(num){
 //     return num**2;
 // }
- 
+
 // const cube= function(num){
 //     return num**3
 // }
@@ -1587,6 +1660,7 @@ let a="10",b=10
 
 // * getElementByTagName() it selects the element of a particular tag name 
 
+
 // TODO: iterate elements
 // const navItems=document.getElementsByClassName("nav-items")
 
@@ -1623,16 +1697,19 @@ let a="10",b=10
 // TODO: Traversing DOM tree
 // const rootNode=document.getRootNode();   // ! this will return 'document' as it is the root node
 // console.log(rootNode)        
-// console.log(rootNode.childNodes)    // ! childnode of the root node is 'HTML'
+// console.log(rootNode.childNodes)    // ! childnode of the root node is 'HTML' only
 // const htmlElementNode=rootNode.childNodes[0];    // ! we can access it using indexes as childnodes return nodelist
 // console.log(htmlElementNode.childNodes);
 
+// const headElementNode = htmlElementNode.childNodes[0]
 // console.log(headElementNode.nextSibling)    // ! this will return other siblings of the same parent node
 
-// const h1=document.querySelector('h1')
+// const h1 = document.querySelector('h1')
 // console.log(h1.parentNode)  //  ! this will return parent node of the particular element
 
 // * nextSibling can also return white-space so to avoid it we use nextElementSibling
+
+// * document.body is used to select the complete body of the document
 
 // * to get only child nodes from a node and for ignoring new-line characters we use children method
 // const div=document.querySelector(".container")
@@ -1643,7 +1720,7 @@ let a="10",b=10
 // console.log(section.classList)       // ! classList
 
 // * to add and remove a class
-// section.classList.add("bg-dark")
+// section.classList.add("bg-dark")     // bg-dark is the class that is to be added and section can be any element selected using queryselector
 // section.classList.remove("bg-dark")
 
 // * to check wheteher a container contains a particular class
@@ -1660,27 +1737,28 @@ let a="10",b=10
  
 
 // TODO: createElement, append, prepend, remove, before, after
-// const newItem=document.createElement("li")     // ! createElement
-// newItemText=document.createTextNode("tech student")
-
-// const toodoList=document.querySelector(".todo-list") 
-// toodoList.append(newItemText)        // ! append
+// const newItem = document.createElement("li")     // ! createElement - we created a new li element
+// const newItemText = document.createTextNode("Teach student")       // we created a new text node and now we will append it to the li item that we had created earlier
+// newItem.append(newItemText)      // ! append
 // console.log(newItem)
+
+// * instead of writing complete line no. 1730, we can directly write newItem.textContent = "anyting we want to write"
+
 // * prepend add a child at starting
 // toodolist.prepend(newItemText)       // ! prepend
 
 // * remove is used to remove a child 
-// const toodo=document.querySelector(".todo-list li")
+// const toodo = document.querySelector(".todo-list li")
 // toodo.remove()                       // ! remove
 
-// * using before
+// * using before & after - before and after will insert the element just before and after the selected element and unlike append and prepend it does not add it to the already present element
 // const newTodoItem = document.createElement("li");
 // newTodoItem.textContent = "Teach students";
 // const toodoList = document.querySelector(".todo-list");
 // toodoList.before(newTodoltem);      // ! before
 // toodoList.after(newTodoltem);      // ! after
 
- 
+
 // TODO: insertAdjacentHTML
 // elem.insertAdjacentHTML(where,html)
 // * beforebegin
@@ -1688,13 +1766,14 @@ let a="10",b=10
 // * beforeend
 // * afterend
 // Example:- todolist.insertAdjacentHTML("afterbegin","<li>teach student</li>")
+// by using this we need not to create element, we can directly add element
 
 
 // TODO: Clone Nodes
-// * we can either prepend or append the node, to do both actions we have to clone the node
-// const li=document.querySelector(".todo-list")
-// li.textContent="new todo"
-// const li2= li.cloneNode(true)    // ! true is written for deep cloning without true node will be cloned but without text content
+// * if we have a single element node then it can either prepend or append the node, to do both actions we have to clone the node
+// const li = document.querySelector(".todo-list")
+// li.textContent = "new todo"
+// const li2 = li.cloneNode(true)    // ! true is written for deep cloning without true node will be cloned but without text content
 // ul.append(li2)
 // ul.prepend(li2)
 
@@ -1706,19 +1785,19 @@ let a="10",b=10
 
 // TODO: How to get the dimensions of an element
 
-// * hegiht width
-// const sectionTodo=document.querySelector(".section-todo")
-// const info= sectionTodo.getBoundingClientRect()     // ! this will return all properties
-// const info= sectionTodo.getBoundingClientRect().height     // ! this will return all height
-// const info= sectionTodo.getBoundingClientRect().width     // ! this will return all width
+// * height width
+// const sectionTodo = document.querySelector(".section-todo")
+// const info = sectionTodo.getBoundingClientRect()     // ! this will return all properties
+// const info = sectionTodo.getBoundingClientRect().height     // ! this will return all height
+// const info = sectionTodo.getBoundingClientRect().width     // ! this will return all width
 // console.log(info)
 
 
-// TODO: Events
+//////////////////////////////////////////////////////// TODO: Events ////////////////////////////////////////////////////
 // * events can be added by 3 methods 
-// first is by adding it in html:- <button class="btn" onclick="console.log(\"you clicked it\")"></button>
-// second is by adding method to class:- btn.onclick= fucntion(){ console.log("click me")}
-// third is the most appropriate way by using event listener:- btn.addEventListener("click",()=>{console.log("clicked me")})
+// first is by adding it in html:- //* <button class="btn" onclick="console.log(\"you clicked it\")"></button>
+// second is by adding method to class:- //* btn.onclick= fucntion(){ console.log("click me")}
+// third is the most appropriate way by using event listener:- //* btn.addEventListener("click",()=>{console.log("clicked me")})
 
 
 // TODO: Click event on multiple buttons
@@ -1735,9 +1814,6 @@ let a="10",b=10
 //     })
 // })
 
-
-// TODO: Event object
-// TODO: Events behind the scenes
 
 // TODO: Practice on call events
 // const mainButton = document.querySelector("button");
@@ -1774,6 +1850,22 @@ let a="10",b=10
 
 
 // TODO: Event bubbling & Event Capturing
+//* document.addEventListener(event, callback_function, event_propagation(true/false) )   true -> eventCapture, false is default
+// suppose we have a ul in which there are multiple images as list items and we had added a eventListener in ul as well as on a list item
+// so now when we click on the list item it should first show the eventListener of the ul and then that of list item but it first shows the eventListener of the list item and this is called event bubbling as it moves from innermost to outermost
+// event bubbling is default in eventListener or we can pass 'false' as the third parameter of eventListener
+// another mode of this is event capturing which is enabled by passing 'true' as the third parameter
+// in event capturing mode first the eventListener of the ul will be called and then that of list item which is top to bottom
+//*  in case of event bubbling if we want that only the inner eventListener should work and the bubble should not propogate to outer one then we can use e.stopPropagation() in the inner event
+
+
+// ! Important 
+// type, timestamp, defaultPrevented
+// target, toElement, srcElement, currentTarget,
+// clientX, clientY, screenX, screenY
+// altkey, ctrlkey, shiftkey, keyCode
+
+
 
 // TODO: Event Delegation
 
@@ -1794,7 +1886,7 @@ let a="10",b=10
 // function hello(){
 //     console.log("hello world");
 // }
-// setTimeout(hello,5000)
+// setTimeout(hello,2000)
 // console.log("script end")
 
 
@@ -1806,27 +1898,55 @@ let a="10",b=10
 // console.log("script end")
 
 // * setTimeout returns an Id
-// const id=setTimeout(()=>{
-//     console.log("....")
+// const id = setTimeout(()=>{
+//     console.log("*****")
 // },5000);
 // console.log(id)
 
 // * if we dont't want to call setTimeout function then we can clear it
 // clearTimeout(id)     // ! if we want to clear setTimeout 
 // console.log("script end")
+// we can add this clearTimeout to an event such as clicking a button to stop calling setTimeout
 
 
-// TODO: setInterval
+// TODO: setInterval(handler, time_gap)
 // console.log("script start")
 // setInterval(() => {             // ! setInterval checks the call stack again and again in the given interval and if the call stack is empty then it will add the setInterval function into it
 //     console.log("inside set interval");
 // }, 1000);       
 // console.log("script end");
 
- 
-// TODO: Promise
+//* we can also pass the parameter in the setInterval 
+// function sayMyName(str){
+//     console.log(str);
+// }
+// setInterval(sayMyName, 2000, 'Aviral')
+
+//* clearInterval(reference_of_setInterval)     // stops the setInterval() 
+
+
+// TODO: xhr request -XMLHTTPSRequest
+// const requestURL = 'https://www.github.com/aviralm52'
+// const xhr = new XMLHttpRequest();
+// xhr.open('GET', requestURL)
+// xhr.onreadystatechange = function(){
+//     console.log(xhr.readyState);
+//     if (xhr.readyState == 4){
+//         const data = JSON.parse(this.responseText)
+//         console.log(typeof data)
+//         console.log(data.followers)
+//     }
+// }
+// xhr.send()
+
+
+// TODO: Promise - it is an object representing the eventual completion or failure of an asynchronous operation
+// * resolve() is to inform that event is completed and reject() is for its not completetion
+// * if promise returns resolve() then it will be catched by then()
+// * fetch().then().catch().finally()   /  promise().then().catch().finally()
+
 // * creation of promise
-// const bucket=['coffee','chips','vegetables','rice','salt']
+const bucket=['coffee','chips','vegetables','rice','salt']
 // const friedRice=new Promise((resolve,reject)=>{
 //     if(bucket.includes("vegetables") && bucket.includes("salt") && bucket.includes("rice")){
 //         resolve("fried rice can be prepared")
@@ -1835,6 +1955,101 @@ let a="10",b=10
 //         reject("something is missing")
 //     }
 // })
+
+// const promiseOne = new Promise(function(resolve, reject){
+//     setTimeout(()=>{
+//         resolve();      // * whether we write resolve() earlier or before it will be called only after the completion of function
+//         console.log('Async task complete');
+//     },1000)
+// })
+// promiseOne.then(() => {
+//     console.log('promise consumed')
+// })s
+
+// const promiseTwo = new Promise(function(resolve, reject){
+//     setTimeout(()=>{
+//         resolve({name: 'Aviral', course: 'BTech'});      //*  we can pass data to resolve() so as to get collected by .then()
+//         console.log('Async task complete');
+//     },1000)
+// }).then((user) => {
+//     console.log(user)
+// })
+
+// const promiseThree = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         let error = true;
+//         if (!error){
+//             resolve({username : 'Aviral', course : 'BTech'})
+//         }
+//         else{
+//             reject('ERROR: something went wrong')
+//         }
+//     }, 1000)
+// })                                       // ! promise chaining
+// promiseThree.then((user) => {
+//     return user.username            // * this username that is returned here will be recieved by the next .then() method that will be chained to this .then()
+// })
+// .then((username) => {
+//     console.log(username)
+// })
+// .catch((error) => {                // * .catch() collects if there are errors
+//     console.log(error)
+// })
+// .finally(() =>{
+//     console.log('Finally');
+// })
+
+
+// TODO: Async / Await  - we can use it instead of .then() / .catch() with promise
+// * Async does not handle errors directly but it uses try-catch to handle the errors
+// * inside an Async function, we can use await keyword to pause the execution of the function untill a promise is resolved, and it returns the resolved value
+// ! HTTP errors such as 404 are not countered by rejct(), reject() only activates when there is error at requesting and request can not be made
+
+// const promiseFour = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         let error = true;
+//         if (!error){
+//             resolve({username : 'Aviral', course : 'BTech'})
+//         }
+//         else{
+//             reject('ERROR: something went wrong')
+//         }
+//     }, 1000)
+// })
+// async function consumePromiseFour(){
+//     try{
+//         const response = await promiseFour
+//         console.log(response);
+//     }catch(error){
+//         console.log(error);
+//     }
+// }
+// consumePromiseFour()
+
+// ! using async/await and .then()/.catch() for response
+// async function getAllUsers(){
+//     try{
+//         const response  = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const data = await response.json()
+//         console.log(data)
+//     }catch(error){
+//         console.log('E: ',error)
+//     }
+// }
+// getAllUsers()
+
+// fetch('https://jsonplaceholder.typicode.com/users')
+// .then((response) => {
+//     return response.json()
+// })
+// .then((data) => {
+//     console.log(data);
+// })
+// .catch((error) => console.log(error))
+
+
+// ! the code written for fetch will be executed first, as fetch() request is inserted in call stack using micro-task queue (high priority queue)
+
 
 // * consumption of promise
 // friedRice.then((myfriedRice)=>{
@@ -1885,7 +2100,8 @@ let a="10",b=10
 //         setTimeout(()=>{
 //             if (value) {resolve()}
 //             else {reject()}
-//         },2000)
+//         },5000)
+//         // throw new Error;             // if we uncomment this line it will give rejected as output
 //     })
 // }
 
@@ -1901,14 +2117,14 @@ let a="10",b=10
 //         resolve("foo")
 //     })
 // }
-// const returnedValue=myPromise().then( (value)=>{
-//     console.log(value)
+// const returnedValue = myPromise().then( (value)=>{
+//     console.log(`value: ${value}`)
 //     value+="bar";
 //     return value
 // })
 // returnedValue
 //     .then( (val)=>{
-//         console.log(val)})
+//         console.log(`chained then: ${val}`)})
 //     .catch( ()=>{"nothing"})
 
 
@@ -1998,3 +2214,186 @@ let a="10",b=10
 // async function getPosts(){      // ! async return promise
     
 // }
+
+
+//////////////////////////////////////////////////// TODO: OOPS //////////////////////////////////////////////////////
+
+// function Users(username,loginCount, isLoggedIn){
+//     this.username = username;
+//     this.loginCount = loginCount;
+//     this.isLoggedIn = isLoggedIn
+//     this.greeting = function(){
+//         console.log(`Welcome ${this.username}`)
+//     }
+//     return this;
+// }
+// const user1 = new Users('Aviral', 5, true);         // new creates a new instance, if we do not use new keyword then user2 will make changes in user1 itself
+// const user2 = new Users('Hitesh', 7, false)
+// console.log(user1)
+// console.log(user2)
+// console.log(user1.constructor)
+
+// * everything in JS is an object, due to its property of prototypal inheritence it keeps on going upper and upper untill it reaches null
+// function myFunction(num){
+//     console.log(num*5)
+// }
+// console.log(`Type: ${typeof myFunction}`, myFunction)
+// myFunction.power = 3        // * if we can access any property using '.' operator then it must be a object
+// myFunction(5)
+// console.log("Power of Function:  ", myFunction.power);
+// console.log(myFunction.prototype);
+// console.log(`Type: ${typeof myFunction}`, myFunction)
+
+
+// function createUser(username, score){
+//     this.username = username;
+//     this.score = score;
+// }
+// createUser.prototype.increment = function(){
+//     this.score++;
+// }
+// createUser.prototype.printMe = function(){
+//     console.log(`score is ${this.score}`);
+// }
+// const Aviral = new createUser('Aviral',15 );   //! Object creation with 'new' keyword, it will not work without new keyword
+// Aviral.printMe()
+
+
+// ! everything is JS(arrays, strings, functions) are objects, so if we access the prototype of OBJECT and made any changes in it then it will be available to all the objects like strings, arrays and functions
+// ! but vice-versa is not true, it means if we give a prototype to ARRAY then it will not be available to OBJECT class
+// const myString = "hey everyone"
+// const myArr = ["OOPS", "DBMS", "CN", "COA"]
+// const myObj = {
+//     username : 'Aviral',
+//     course : 'B.Tech',
+//     details : function(){
+//         console.log(`${this.username} is a ${this.course} student`)
+//     }
+// }
+// //* Now we will add our own method in Object prototype
+// Object.prototype.aviral = function(){
+//     console.log('This is a self created prototype')
+// }
+
+// myString.aviral()
+// myArr.aviral()
+// myObj.aviral()
+
+
+// ! Prototypal Inheritence
+// const student = {
+//     name : 'Aviral',
+//     email : 'aviralm52@gmail.com'
+// }
+// const College = {
+//     teaching : true
+// }
+//  College.__proto__ = student                   //* now we can access properties of student through College also
+// console.log(College.teaching, College.name, College.email);
+
+// //* modern syntax
+// Object.setPrototypeOf(College, student)            //* set property of student to College
+// console.log(College.teaching, College.name, College.email);
+
+
+//* Example - we want to create a method which return trueLength of the string after removing all the trailing whitespaces
+// String.prototype.trueLength = function() {
+//     console.log(`${this}`);
+//     console.log(`The length of the string is : ${this.trim().length}`);
+// }
+// const myString = "   aviral    ";
+// console.log(myString.length);
+// myString.trueLength()
+
+
+// ! Classes and Objects
+// class User{
+//     constructor (firstName , lastName, password){
+//         this.firstName = firstName,
+//         this.lastName = lastName
+//         this.password = password
+//         console.log('Inside User: ',firstName, lastName, password)
+//     }
+//     encryptPassword(){
+//         return `${this.password}abc`
+//     }
+//     changeusername(){
+//         return `${this.firstName.toUpperCase()}`
+//     }
+// }
+// const Aviral = new User('Aviral', 'Mishra', 7704)
+// console.log(Aviral.encryptPassword())
+// console.log(Aviral.changeusername())
+
+// class Student extends User{
+//     constructor(email, course, password, firstName, lastName){
+//         super(password, firstName, lastName)            //* The paramaters must be given in the order in which they are passed in User class
+//         this.email = email
+//         this.course = course
+//         console.log('Inside Student: ',email, course, password)
+//     }
+// } 
+// const stud = new Student('aviralm52', 'B.Tech','124afa', 'zcvzc', 'fdha7')
+// console.log(stud.changeusername())
+// console.log(stud.encryptPassword())
+// console.log(stud instanceof User)
+
+
+// ! Object Properties
+
+// console.log(Math.PI)
+// console.log(Object.getOwnPropertyDescriptor(Math, 'PI'));       //* we can not overwrite it as it is not writable
+
+// const myObj = {
+//     name : 'chai',
+//     price : 15,
+//     isAvailable : true
+// }
+// console.log(Object.getOwnPropertyDescriptor(myObj,"name"));             //* it is writable
+
+// Object.defineProperty(myObj, 'name', {
+//     writable : false,    //* make the property read only
+//     enumerable : false          //* by making enumerable false for 'name' we can not iterate name 
+// })
+// console.log(Object.getOwnPropertyDescriptor(myObj, 'name'));
+
+// for (let [key,value] of Object.entries(myObj)){
+//     console.log(`${key} : ${value}`)            //* name will not be printed
+// }
+
+
+// ! Getters & Setters
+
+////////////////////////////////////////////////// TODO: Closures ////////////////////////////////////////////////////
+
+// ! closures means when we return an inner function from an outer function then it just not return its executional context, but also return its lexical scope otherwise it will give error
+// function makeFunc(){
+//     const name = "Aviral"
+//     function displayName(){
+//         console.log(name);
+//     }
+//     return displayName          //* it will return displayName function with its lexixal scope that is its outer function which is having 'name'
+// }
+// let fun = makeFunc()
+// fun()
+
+//////////////////////////////////////////////////////TODO: DOM //////////////////////////////////////////////////////
+
+// //! getElementById
+// //! getElementByClassName
+// //! getElementByTagName
+
+// //! title.innerText --> Only returns what is visible on screen and avoid extra part such as whose display is none
+// //! title.textContent --> returns complete content including that with the property display none
+// //! title.innerHTML --> gives the complete HTML for the selected part
+
+
+
+
+
+
+
+
+
+
+
